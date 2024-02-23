@@ -31,3 +31,12 @@ print(flag)
 ![Screenshot 2024-02-23 144848](https://github.com/hoahangsau/CryptohackChallenge/assets/153940762/f75f3306-e21e-4156-bf62-a269cc9e0775)
 
 **#BytesAndBigIntegers**
+Sau khi install pycryptodome thì chúng ta có thể import được các method bytes_to_long() và long_to_bytes()
+<pre>long_to_bytes() : chuyển đổi từ số nguyên dạng long sang chuỗi bytes, còn bytes_to_long() thì ngược lại</pre>
+<pre>
+  from Crypto.Util.number import long_to_bytes
+long = 11515195063862318899931685488813747395775516287289682636499965282714637259206269
+bytes = long_to_bytes(long)
+print(bytes)
+</pre>
+![Screenshot 2024-02-23 162732](https://github.com/hoahangsau/CryptohackChallenge/assets/153940762/567d8deb-d466-441d-9e7b-cdb5a793687d)

@@ -19,3 +19,13 @@ print(flag)
 =>OUTPUT:b'crypto{You_will_be_working_with_hex_strings_a_lot}'
 ![Screenshot 2024-02-23 142225](https://github.com/hoahangsau/CryptohackChallenge/assets/153940762/4dc34072-d512-4ff8-b0dc-d73ee5f52032)
 
+**#Base64**
+Trước tiên phải import thư viện base64, sau đó decode đoạn hex thành bytes và encode sang base64 bằng hàm <pre>base64.b64encode()</pre>
+<pre>
+  import base64
+hex ="72bca9b68fc16ac7beeb8f849dca1d8a783e8acf9679bf9269f7bf"
+bytes = bytes.fromhex(hex)
+flag = base64.b64encode(bytes)
+print(flag)
+</pre>
+![Screenshot 2024-02-23 144848](https://github.com/hoahangsau/CryptohackChallenge/assets/153940762/f75f3306-e21e-4156-bf62-a269cc9e0775)

@@ -41,7 +41,6 @@ print(bytes)
 </pre>
 ![Screenshot 2024-02-23 162732](https://github.com/hoahangsau/CryptohackChallenge/assets/153940762/567d8deb-d466-441d-9e7b-cdb5a793687d)
 
-**#EncodingChallenge**
 **#XORStarter**
 Để XOR với một chữ thì ta phải chuyển đổi chữ đó tương ứng với số trong bảng mã ASCII trước bằng lệnh _ord_
 <pre>
@@ -112,3 +111,16 @@ image3.show()
 ![image](https://github.com/hoahangsau/CryptohackChallenge/assets/153940762/269ce55f-a9a4-4a82-8808-68619b4a1d32)
 
 **#GCD**
+Mình sử dụng thuật toán Euclid để tìm ra GCD
+<pre>
+  def gcd(a, b):
+    while b:
+       a,b=b,a%b
+    return a
+result=gcd(66528,52920)
+print(result)
+</pre>
+![image](https://github.com/hoahangsau/CryptohackChallenge/assets/153940762/cffdba3c-e587-4581-ab0f-30e21900e823)
+
+**#ExtendedGCD**
+

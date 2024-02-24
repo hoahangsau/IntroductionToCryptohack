@@ -89,7 +89,7 @@ for num in range(256):
 ![Screenshot 2024-02-24 151342](https://github.com/hoahangsau/CryptohackChallenge/assets/153940762/cbdecca9-18cd-4ab1-9cb3-6ecd1f127713)
 
 **#You either know, XOR you don't**
-Vì chúng ta đã biết format flag là "crypto{...}" nên chúng ta có thể tận dụng để làm XOR key, sau khi xor lần một thì thấy được thêm XOR key nữa, nếu ta tiếp tục XOR lần hai với XOR key đó sẽ ra được flag
+Vì mình đã biết format flag là "crypto{...}" nên chúng ta có thể tận dụng để làm XOR key, sau khi xor lần một thì thấy được thêm XOR key nữa, nếu ta tiếp tục XOR lần hai với XOR key đó sẽ ra được flag
 <Pre>
   from pwn import xor 
 hex="0e0b213f26041e480b26217f27342e175d0e070a3c5b103e2526217f27342e175d0e077e263451150104"
@@ -100,4 +100,15 @@ print(flag)
 </Pre>
 ![Screenshot 2024-02-24 152630](https://github.com/hoahangsau/CryptohackChallenge/assets/153940762/7bff5185-2dec-4351-85d3-20e6135d9b5b)
 
+**#LemurXOR**
+Trong thử thách này, mình sẽ làm việc với thư viện Pillow(PIL). Trước tiên dùng method _subtract_ từ module _ImageChops_ để tìm ra các giá trị pixel khác biệt giữa hai bức ảnh, sau đó combine các giá trị đó lại sẽ ra được bức ảnh chứa flag.
+<Pre>
+from PIL import Image, ImageChops
+image1 = Image.open("lemur.png")
+image2 = Image.open("flag.png")
+image3 = ImageChops.add(ImageChops.subtract(image2, image1), ImageChops.subtract(image1, image2))
+image3.show()
+</Pre>
+![image](https://github.com/hoahangsau/CryptohackChallenge/assets/153940762/269ce55f-a9a4-4a82-8808-68619b4a1d32)
 
+**#GCD**

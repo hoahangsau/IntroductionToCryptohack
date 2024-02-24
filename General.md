@@ -123,4 +123,15 @@ print(result)
 ![image](https://github.com/hoahangsau/CryptohackChallenge/assets/153940762/cffdba3c-e587-4581-ab0f-30e21900e823)
 
 **#ExtendedGCD**
+Mình áp dụng thuật toán Euclid mở rộng để tìm ra GCD,u,v sao cho 26513 * u + 32321 * v = gcd
+<pre>
+  def extended_gcd(a, b):
+    if a == 0:
+        return (b, 0, 1)
+    else:
+        g, x, y = extended_gcd(b % a, a)
+        return (g, y - (b // a) * x, x)
 
+print(extended_gcd(26513,32321))
+</pre>
+![Screenshot 2024-02-24 194957](https://github.com/hoahangsau/CryptohackChallenge/assets/153940762/2de568c7-4e42-464e-9194-4c5667ffadc5)

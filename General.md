@@ -88,5 +88,16 @@ for num in range(256):
 </Pre>
 ![Screenshot 2024-02-24 151342](https://github.com/hoahangsau/CryptohackChallenge/assets/153940762/cbdecca9-18cd-4ab1-9cb3-6ecd1f127713)
 
+**#You either know, XOR you don't**
+Vì chúng ta đã biết format flag là "crypto{...}" nên chúng ta có thể tận dụng để làm XOR key, sau khi xor lần một thì thấy được thêm XOR key nữa, nếu ta tiếp tục XOR lần hai với XOR key đó sẽ ra được flag
+<Pre>
+  from pwn import xor 
+hex="0e0b213f26041e480b26217f27342e175d0e070a3c5b103e2526217f27342e175d0e077e263451150104"
+byte=bytes.fromhex(hex)
+key1=xor(byte,"crypto{")
+flag=xor(byte,"myXORkey")
+print(flag)
+</Pre>
+![Screenshot 2024-02-24 152630](https://github.com/hoahangsau/CryptohackChallenge/assets/153940762/7bff5185-2dec-4351-85d3-20e6135d9b5b)
 
 

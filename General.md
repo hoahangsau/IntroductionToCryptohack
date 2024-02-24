@@ -58,8 +58,35 @@ XOR có tính chất đối xứng nên chúng ta có thể tìm được các K
 <pre>
   Example: A ^ B = C <=> C ^ B = A
 </pre>
-trước khi XOR thì chúng ta phải cdecode các hex key sang bytes
+Trước khi XOR thì chúng ta phải decode các hex key sang bytes
+<pre>
+  from Crypto.Util.number import long_to_bytes, bytes_to_long 
+
+KEY1 = "a6c8b6733c9b22de7bc0253266a3867df55acde8635e19c73313"
+KEY12 = "37dcb292030faa90d07eec17e3b1c6d8daf94c35d4c9191a5e1e"
+KEY23 = "c1545756687e7573db23aa1c3452a098b71a7fbf0fddddde5fc1"
+KEYALL = "04ee9855208a2cd59091d04767ae47963170d1660df7f56f5faf"
+
+KEY2 = bytes_to_long(bytes.fromhex(KEY1)) ^ bytes_to_long(bytes.fromhex(KEY12))
+KEY3 = KEY2 ^ bytes_to_long(bytes.fromhex(KEY23))
+FLAG = bytes_to_long(bytes.fromhex(KEYALL)) ^ KEY3 ^ KEY2 ^ bytes_to_long(bytes.fromhex(KEY1))
+flag = long_to_bytes(FLAG)
+print(flag)
+</pre>
 ![image](https://github.com/hoahangsau/CryptohackChallenge/assets/153940762/2e520d29-d70b-4947-835d-287a4471ca78)
+
+**#FavouriteByte**
+Đối với bài này ta sẽ phải XOR với từng byte. Mỗi byte có thể có giá trị từ 0 đến 255.
+<Pre>
+  hex="73626960647f6b206821204f21254f7d694f7624662065622127234f726927756d"
+byte = bytes.fromhex(hex)
+for num in range(256):   
+    results = [chr(n^num) for n in byte]
+    flag = "".join(results)   
+    if flag.startswith('crypto'):
+        print(flag)
+</Pre>
+![Screenshot 2024-02-24 151342](https://github.com/hoahangsau/CryptohackChallenge/assets/153940762/cbdecca9-18cd-4ab1-9cb3-6ecd1f127713)
 
 
 

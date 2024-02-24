@@ -42,3 +42,24 @@ print(bytes)
 ![Screenshot 2024-02-23 162732](https://github.com/hoahangsau/CryptohackChallenge/assets/153940762/567d8deb-d466-441d-9e7b-cdb5a793687d)
 
 **#EncodingChallenge**
+**#XORStarter**
+Để XOR với một chữ thì ta phải chuyển đổi chữ đó tương ứng với số trong bảng mã ASCII trước bằng lệnh _ord_
+<pre>
+  string ="label"
+for char in string:
+    result1=ord(char)^13
+    result2=chr(result1)
+    print(result2,end='')
+</pre>
+![image](https://github.com/hoahangsau/CryptohackChallenge/assets/153940762/0c8ede1a-ad1a-452a-84c5-32847f926e72)
+
+**#XORProperties**
+XOR có tính chất đối xứng nên chúng ta có thể tìm được các KEY từ dữ liệu đề bài
+<pre>
+  Example: A ^ B = C <=> C ^ B = A
+</pre>
+trước khi XOR thì chúng ta phải cdecode các hex key sang bytes
+![image](https://github.com/hoahangsau/CryptohackChallenge/assets/153940762/2e520d29-d70b-4947-835d-287a4471ca78)
+
+
+

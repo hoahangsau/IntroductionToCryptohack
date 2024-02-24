@@ -14,3 +14,47 @@ Kết nối tới sever bằng lệnh _nc socket.cryptohack.org 11112_. Sau đó
 ![Screenshot 2024-02-23 002256](https://github.com/hoahangsau/CryptohackChallenge/assets/153940762/fdb2dd4d-aeaa-40fd-816b-af061fd33db7)
 
 **_Cách 2_**
+<pre>
+  import socket
+import json
+
+HOST = "socket.cryptohack.org"
+PORT = 11112
+
+r = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+r.connect((HOST, PORT))
+
+def readline():
+    data = b""
+    while True:
+        char = r.recv(1)
+        if char == b"\n":
+            break
+        data += char
+    return data.decode()
+
+def json_recv():
+    line = readline()
+    return json.loads(line)
+
+def json_send(hsh):
+    request = json.dumps(hsh).encode() 
+    r.sendall(request)
+
+try:
+    for i in range(4):
+        print(readline())
+
+
+    request = {"buy": "flag"}
+    json_send(request)
+
+
+    response = json_recv()
+    print(response)
+
+finally:
+    r.close()
+</pre>
+
+Đoạn script trên thiết lập kết nối với sever socket, sử dụng các hàm readline(), json_recv(), json_send() để gửi data, nhận data và đọc data từ sever.
